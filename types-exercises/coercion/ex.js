@@ -1,5 +1,39 @@
 // TODO: write the validation functions
+function isValidName(name) {
+    return typeof name === "string" && name !== "" && nonWhiteSpaceOfAtLeast3Chars(name)
 
+    function nonWhiteSpaceOfAtLeast3Chars(name) {
+      return name.length >= 3 && name[0] !== " " && name[1] !== " " && name[2] !== " "
+    }
+}
+
+function hoursAttended(attend, length) {
+    return isStringOrNumber(attend) &&
+          isStringOrNumber(length) &&
+          canBeANumber(attend) &&
+          canBeANumber(length) &&
+          isZeroOrHigher(attend) &&
+          isZeroOrHigher(length) &&
+          isWholeNumber(attend) &&
+          isWholeNumber(length) &&
+          (Number(attend) <= Number(length))
+
+    function isStringOrNumber(num) {
+      return typeof num == "string" || typeof num == "number"
+    }
+
+    function canBeANumber(num) {
+      return Number(num) !== NaN && num !== ""
+    }
+
+    function isZeroOrHigher(num) {
+      return Number(num) >= 0
+    }
+
+    function isWholeNumber(num) {
+      return Number(num) % 1 == 0
+    }
+  }
 
 
 // tests:
